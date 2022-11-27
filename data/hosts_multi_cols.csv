@@ -1,0 +1,11 @@
+# Example of a CVS file containing a list of servers.
+# Only the first field is mandatory
+# The first valid row is expected to be the column header
+# Line starting with a '#' are comments
+# A server can be a hostname or a combination of a hostname and a port separated by a ':'
+# For example: google.com:443
+
+host, comments
+google.com, The little search engine that could
+burgaud.com, The little engineer that could not
+example.com, The classic example
