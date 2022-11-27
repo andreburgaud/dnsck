@@ -13,6 +13,8 @@ https://github.com/andreburgaud/dnsck
 
 ```
 $ dnsck google.com
+```
+```json
 {
   "servers": [
     {
