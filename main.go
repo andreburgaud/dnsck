@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	textVersion = "0.3.0"
+	textVersion = "0.4.0"
 	appName     = "dnsck"
 )
 

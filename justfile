@@ -3,7 +3,7 @@ DEBUG_DIR := BUILD_DIR / "debug"
 RELEASE_DIR := BUILD_DIR / "release"
 BIN_DIR := "bin"
 DIST_DIR := "dist"
-VERSION := "0.3.0"
+VERSION := "0.4.0"
 
 APP := "dnsck"
 APP_BIN := if os() == "windows" { APP + ".exe" } else { APP }
@@ -64,3 +64,9 @@ build-mac:
 build-mac-arm:
     GOOS=darwin GOARCH=arm64 go build -o bin/macosx-arm64/{{APP_BIN}} main.go
     zip -j {{DIST_DIR}}/{{APP}}_macosx-arm64_{{VERSION}}.zip {{BIN_DIR}}/macosx-arm64/{{APP_BIN}}
+
+# Push and tag changes to github
+push:
+    git push
+    git tag -a {{VERSION}} -m 'Version {{VERSION}}'
+    git push origin --tags
