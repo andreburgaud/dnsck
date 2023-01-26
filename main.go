@@ -75,8 +75,20 @@ func usage() {
 	fmt.Printf(textUsage, appName)
 }
 
+func isIpAddress(ip string) bool {
+	return net.ParseIP(ip) != nil
+}
+
 // connect performs lookup for the host, cname and other DNS records
 func validateDomain(domain string) Domain {
+	if isIpAddress(domain) {
+		names, err := net.LookupAddr(domain)
+		if err != nil {
+			return Domain{Name: domain, Error: err.Error()}
+		}
+		domain = names[0]
+	}
+
 	d := Domain{Name: domain}
 	addrs, err := net.LookupHost(domain)
 	if err != nil {
