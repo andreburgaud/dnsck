@@ -3,7 +3,7 @@ DEBUG_DIR := BUILD_DIR / "debug"
 RELEASE_DIR := BUILD_DIR / "release"
 BIN_DIR := "bin"
 DIST_DIR := "dist"
-VERSION := "0.5.0"
+VERSION := "0.5.1"
 
 APP := "dnsck"
 APP_BIN := if os() == "windows" { APP + ".exe" } else { APP }
